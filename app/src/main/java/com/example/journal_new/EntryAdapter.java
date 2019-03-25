@@ -34,31 +34,31 @@ public class EntryAdapter extends ResourceCursorAdapter {
         entry_mood.setText(mood);
 
         // Set emojis to illustrate mood
-        int drawableId = R.drawable.expressionless;
+        ImageView entry_mood_image = view.findViewById(R.id.entry_mood_image);
+        int view_id = R.drawable.expressionless;
         switch(mood) {
             case "emotionless":
-                drawableId = R.drawable.expressionless;
+                view_id = R.drawable.expressionless;
                 break;
             case "smiling":
-                drawableId = R.drawable.smilingeyes;
+                view_id = R.drawable.smilingeyes;
                 break;
             case "joyful":
-                drawableId = R.drawable.tearsofjoy;
+                view_id = R.drawable.tearsofjoy;
                 break;
             case "in love":
-                drawableId = R.drawable.inlove;
+                view_id = R.drawable.inlove;
                 break;
             case "pensive":
-                drawableId = R.drawable.pensive;
+                view_id = R.drawable.pensive;
                 break;
             case "angry":
-                drawableId = R.drawable.angry;
+                view_id = R.drawable.angry;
                 break;
             case "sick":
-                drawableId = R.drawable.vomit;
+                view_id = R.drawable.vomit;
                 break;
         }
-        ImageView moodImage = view.findViewById(R.id.moodImage);
-        moodImage.setImageResource(drawableId);
+        entry_mood_image.setImageResource(view_id);
     }
 }

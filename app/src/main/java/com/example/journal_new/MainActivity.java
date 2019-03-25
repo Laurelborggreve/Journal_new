@@ -33,9 +33,7 @@ public class MainActivity extends AppCompatActivity {
         ListView listview = findViewById(R.id.adapterlistview);
         listview.setOnItemClickListener(new ItemClickListener());
         listview.setOnItemLongClickListener(new ItemLongClickListener());
-        Parcelable state = listview.onSaveInstanceState();
         listview.setAdapter(adapter);
-        listview.onRestoreInstanceState(state);
     }
 
     private class ItemClickListener implements AdapterView.OnItemClickListener{
