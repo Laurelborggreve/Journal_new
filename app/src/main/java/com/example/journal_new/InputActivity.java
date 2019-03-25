@@ -64,6 +64,5 @@ public class InputActivity extends AppCompatActivity {
                 mood = "sick";
                 break;
         }
-        Toast.makeText(getApplicationContext(), "You are " + mood + "!", Toast.LENGTH_SHORT).show();
     }
 }
