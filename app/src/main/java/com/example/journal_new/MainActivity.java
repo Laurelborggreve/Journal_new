@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
             db.delete(clickedjournalentry.getInt(clickedjournalentry.getColumnIndex("_id")));
 
             // Set adapter and update data
-          //  setAdapter();
             updateData();
             return true;
         }
