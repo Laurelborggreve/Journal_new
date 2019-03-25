@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 
 public class InputActivity extends AppCompatActivity {
-    private String mood = "happy";
+    private String mood = "Emotionless";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +24,12 @@ public class InputActivity extends AppCompatActivity {
     // Method to add a journal entry
     public void addEntry() {
         EditText insert_title = findViewById(R.id.insert_title);
-        EditText insert_content = findViewById(R.id.insert_content);
-       // EditText insert_mood = findViewById(R.id.insert_mood);
-
         String title = insert_title.getText().toString();
-        String content = insert_content.getText().toString();
-      //  String mood = insert_mood.getText().toString();
 
-        JournalEntry journalentry = new JournalEntry(title, content, mood);
+        EditText insert_content = findViewById(R.id.insert_content);
+        String content = insert_content.getText().toString();
+
+        JournalEntry journalentry = new JournalEntry(0, title, content, mood, "");
         EntryDatabase.getInstance(getApplicationContext()).insert(journalentry);
 
         // Go back to Main Activity
@@ -40,29 +38,32 @@ public class InputActivity extends AppCompatActivity {
         finish();
     }
 
-
+    // Set emojis to illustrate the mood
     public void moodClicked(View view) {
         int id = view.getId();
         switch(id) {
-            case R.id.sad:
-                mood = "sad";
+            case R.id.emotionless:
+                mood = "emotionless";
                 break;
-            case R.id.depressive:
-                mood = "depressive";
+            case R.id.smiling:
+                mood = "smiling";
                 break;
-            case R.id.funny:
-                mood = "funny";
+            case R.id.joyful:
+                mood = "joyful";
                 break;
-            case R.id.mad:
-                mood = "mad";
+            case R.id.inlove:
+                mood = "in love";
                 break;
-            case R.id.great:
-                mood = "great";
+            case R.id.pensive:
+                mood = "pensive";
                 break;
-            case R.id.happy:
-                mood = "happy";
+            case R.id.angry:
+                mood = "angry";
+                break;
+            case R.id.sick:
+                mood = "sick";
                 break;
         }
-        Toast.makeText(getApplicationContext(), mood + " is selected", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "You are " + mood + "!", Toast.LENGTH_SHORT).show();
     }
 }

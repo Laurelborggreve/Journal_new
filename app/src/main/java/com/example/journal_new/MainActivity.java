@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -15,20 +14,11 @@ public class MainActivity extends AppCompatActivity {
     private EntryAdapter adapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // Get all records from the database
-        db = EntryDatabase.getInstance(getApplicationContext());
-        adapter = new EntryAdapter(getApplicationContext(), db.selectAll());
-        ListView listview = findViewById(R.id.adapterlistview);
-        listview.setOnItemClickListener(new ItemClickListener());
-        listview.setOnItemLongClickListener(new ItemLongClickListener());
-        Parcelable state = listview.onSaveInstanceState();
-        listview.setAdapter(adapter);
-        listview.onRestoreInstanceState(state);
-      //  setAdapter();
+        setAdapter();
     }
 
     public void FABClicked(View view) {
@@ -37,17 +27,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Method to instantiate the adapter
-//    public void setAdapter() {
-//        db = EntryDatabase.getInstance(getApplicationContext());
-//        adapter = new EntryAdapter(getApplicationContext(), db.selectAll());
-//        ListView listview = findViewById(R.id.adapterlistview);
-//        listview.setOnItemClickListener(new ItemClickListener());
-//        listview.setOnItemLongClickListener(new ItemLongClickListener());
-//        Parcelable state = listview.onSaveInstanceState();
-//        listview.setAdapter(adapter);
-//        listview.onRestoreInstanceState(state);
-//
-//    }
+    public void setAdapter() {
+        db = EntryDatabase.getInstance(getApplicationContext());
+        adapter = new EntryAdapter(getApplicationContext(), db.selectAll());
+        ListView listview = findViewById(R.id.adapterlistview);
+        listview.setOnItemClickListener(new ItemClickListener());
+        listview.setOnItemLongClickListener(new ItemLongClickListener());
+        Parcelable state = listview.onSaveInstanceState();
+        listview.setAdapter(adapter);
+        listview.onRestoreInstanceState(state);
+    }
 
     private class ItemClickListener implements AdapterView.OnItemClickListener{
 
@@ -56,15 +45,15 @@ public class MainActivity extends AppCompatActivity {
             // Go to Detail activity
             Intent intent = new Intent(MainActivity.this, DetailActivity.class);
 
-            // retrieve item that was clicked
+            // Retrieve item that was clicked
             Cursor cursor = (Cursor) parent.getItemAtPosition(position);
 
             JournalEntry journalentry = new JournalEntry(
-                    //cursor.getInt(cursor.getColumnIndex("_id")),
+                    cursor.getInt(cursor.getColumnIndex("_id")),
                     cursor.getString(cursor.getColumnIndex("title")),
                     cursor.getString(cursor.getColumnIndex("content")),
-                    cursor.getString(cursor.getColumnIndex("mood")));
-                //    cursor.getString(cursor.getColumnIndex("timestamp")));
+                    cursor.getString(cursor.getColumnIndex("mood")),
+                    cursor.getString(cursor.getColumnIndex("timestamp")));
             journalentry.setTimestamp(cursor.getString(cursor.getColumnIndex("timestamp")));
             intent.putExtra("journalentry", journalentry);
             startActivity(intent);
@@ -75,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-     //       db = EntryDatabase.getInstance(getApplicationContext());
+            db = EntryDatabase.getInstance(getApplicationContext());
 
             // retrieve item that was clicked
             Cursor clickedjournalentry = (Cursor) parent.getItemAtPosition(position);
@@ -95,11 +84,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onResume() {
-        System.out.println("testjes");
+    public void onResume() {;
         super.onResume();
         adapter.notifyDataSetChanged();
     }
-
 
 }

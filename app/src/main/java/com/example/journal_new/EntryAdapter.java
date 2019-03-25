@@ -18,37 +18,44 @@ public class EntryAdapter extends ResourceCursorAdapter {
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
+        // Set date and time
         TextView entry_date = view.findViewById(R.id.entry_date);
         String date = cursor.getString(cursor.getColumnIndex("timestamp"));
         entry_date.setText(date);
 
+        // Set title
         TextView entry_title = view.findViewById(R.id.entry_title);
         String title = cursor.getString(cursor.getColumnIndex("title"));
         entry_title.setText(title);
 
+        // Set mood
         TextView entry_mood = view.findViewById(R.id.entry_mood);
         String mood = cursor.getString(cursor.getColumnIndex("mood"));
         entry_mood.setText(mood);
-        entry_mood.setTypeface(null, Typeface.ITALIC);
-        int drawableId = R.drawable.funny;
+
+        // Set emojis to illustrate mood
+        int drawableId = R.drawable.expressionless;
         switch(mood) {
-            case "funny":
-                drawableId = R.drawable.funny;
+            case "emotionless":
+                drawableId = R.drawable.expressionless;
                 break;
-            case "great":
-                drawableId = R.drawable.amazing;
+            case "smiling":
+                drawableId = R.drawable.smilingeyes;
                 break;
-            case "depressive":
-                drawableId = R.drawable.depressive;
+            case "joyful":
+                drawableId = R.drawable.tearsofjoy;
                 break;
-            case "happy":
-                drawableId = R.drawable.happy;
+            case "in love":
+                drawableId = R.drawable.inlove;
                 break;
-            case "mad":
-                drawableId = R.drawable.mad;
+            case "pensive":
+                drawableId = R.drawable.pensive;
                 break;
-            case "sad":
-                drawableId = R.drawable.sad;
+            case "angry":
+                drawableId = R.drawable.angry;
+                break;
+            case "sick":
+                drawableId = R.drawable.vomit;
                 break;
         }
         ImageView moodImage = view.findViewById(R.id.moodImage);

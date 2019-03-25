@@ -5,21 +5,18 @@ import java.io.Serializable;
 public class JournalEntry implements Serializable {
 
     // Declare fields
- //   private int id;
     private String title, content, mood, timestamp;
+    private int id;
 
-    // Method to create journalentry with information
-    public JournalEntry(String title, String content, String mood) {
-   //     this.id = id;
-        this.title = title;
-        this.content = content;
-        this.mood = mood;
-    //    this.timestamp = timestamp;
+    // Method to create a journal entry with information
+    public JournalEntry(int JE_id, String JE_title, String JE_content, String JE_mood, String JE_timestamp) {
+        this.id = JE_id;
+        this.title = JE_title;
+        this.content = JE_content;
+        this.mood = JE_mood;
+        this.timestamp = JE_timestamp;
     }
 
-  //  public int getId() {
-//        return id;
-//    }
 
     public String getTitle() {
         return title;
@@ -44,14 +41,6 @@ public class JournalEntry implements Serializable {
     public void setContent(String content) {
         this.content = content;
     }
-
-    public void setMood(String mood) {
-        this.mood = mood;
-    }
-
-//    public void setId(int id) {
-//        this.id = id;
-//    }
 
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;

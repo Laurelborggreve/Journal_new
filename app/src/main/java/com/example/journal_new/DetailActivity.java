@@ -20,11 +20,10 @@ public class DetailActivity extends AppCompatActivity {
 
         // Show contents of retrieved journal entries in the appropriate views
         TextView detail_timestamp = findViewById(R.id.detail_timestamp);
-        detail_timestamp.setText(retrievedjournalentry.getTimestamp());
+        detail_timestamp.setText("The date of this journal is: " + retrievedjournalentry.getTimestamp());
 
         TextView detail_mood = findViewById(R.id.detail_mood);
-        detail_mood.setText(retrievedjournalentry.getMood());
-        detail_mood.setTypeface(null, Typeface.ITALIC);
+        detail_mood.setText("I was: " + retrievedjournalentry.getMood());
 
         TextView detail_title = findViewById(R.id.detail_title);
         detail_title.setText(retrievedjournalentry.getTitle());
