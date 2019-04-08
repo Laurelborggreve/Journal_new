@@ -36,7 +36,7 @@ public class DetailActivity extends AppCompatActivity {
         detailTitle.setText(retrievedJournalEntry.getTitle());
         detailContent.setText(retrievedJournalEntry.getContent());
 
-        ImageButton favoriteButton = findViewById(R.id.imageButton);
+        ImageButton favoriteButton = findViewById(R.id.image_button);
         favoriteButton.setOnClickListener(new LikeButtonListener());
 
         titleEntry = retrievedJournalEntry.getTitle();
@@ -47,8 +47,10 @@ public class DetailActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Toast.makeText(getApplicationContext(), titleEntry + " is now a favorite!", Toast.LENGTH_SHORT).show();
-            ImageButton favoriteButton = findViewById(R.id.imageButton);
+            ImageButton favoriteButton = findViewById(R.id.image_button);
             favoriteButton.setTag("true");
+
+            // Start new activity
             Intent intent = new Intent(DetailActivity.this, MainActivity.class);
             intent.putExtra("favoriteClicked", favoriteClicked);
             startActivity(intent);

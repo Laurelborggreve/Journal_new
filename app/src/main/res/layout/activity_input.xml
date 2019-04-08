@@ -106,7 +106,7 @@
         android:layout_weight="1"
         android:background="@android:color/holo_green_dark"
         android:fontFamily="cursive"
-        android:onClick="sumbitentryClicked"
+        android:onClick="submitEntryClicked"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"

@@ -17,7 +17,7 @@ public class InputActivity extends AppCompatActivity {
         setContentView(R.layout.activity_input);
     }
 
-    public void sumbitentryClicked(View view){
+    public void submitEntryClicked(View view){
         addEntry();
     }
 

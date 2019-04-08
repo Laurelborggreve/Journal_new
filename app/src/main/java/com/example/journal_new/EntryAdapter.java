@@ -34,7 +34,7 @@ public class EntryAdapter extends ResourceCursorAdapter {
 
         // EXTRA FOR IMPROVING PROJECT If a jorunal entry is liked, set a star as image
         String favoriteClicked = (String) view.getTag();
-        Log.d("favoriteCLicked", "favclick");
+        Log.d("favoriteClicked", "favorteClicked");
         if ("true".equals(favoriteClicked)) {
             ImageView imageView = view.findViewById(R.id.favorite_clicked_image);
             int star = R.drawable.star;
