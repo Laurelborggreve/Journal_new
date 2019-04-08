@@ -9,14 +9,13 @@ public class JournalEntry implements Serializable {
     private int id;
 
     // Method to create a journal entry with information
-    public JournalEntry(int JE_id, String JE_title, String JE_content, String JE_mood, String JE_timestamp) {
-        this.id = JE_id;
-        this.title = JE_title;
-        this.content = JE_content;
-        this.mood = JE_mood;
-        this.timestamp = JE_timestamp;
+    public JournalEntry(int journalEntryId, String journalEntryTitle, String journalEntryContent, String journalEntryMood, String journalEntryTimestamp) {
+        this.id = journalEntryId;
+        this.title = journalEntryTitle;
+        this.content = journalEntryContent;
+        this.mood = journalEntryMood;
+        this.timestamp = journalEntryTimestamp;
     }
-
 
     public String getTitle() {
         return title;

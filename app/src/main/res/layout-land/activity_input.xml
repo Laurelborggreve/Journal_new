@@ -10,100 +10,100 @@
     <EditText
         android:id="@+id/insert_title"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:ems="10"
         android:fontFamily="cursive"
         android:inputType="textPersonName"
         android:text="Title"
         android:textIsSelectable="false"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="italic" />
 
     <EditText
         android:id="@+id/insert_content"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:layout_weight="1"
+        android:layout_height="162dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:ems="10"
         android:fontFamily="cursive"
+        android:hint="content"
         android:inputType="text|textMultiLine"
         android:text="Content"
-        android:hint="content"
         android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:clickable="true">
+        android:layout_height="52dp"
+        android:clickable="true"
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/emotionless"
             android:layout_width="60dp"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             android:onClick="moodClicked"
             android:src="@drawable/expressionless" />
 
         <ImageView
             android:id="@+id/smiling"
             android:layout_width="60dp"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             android:onClick="moodClicked"
             android:src="@drawable/smilingeyes" />
 
         <ImageView
             android:id="@+id/joyful"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:onClick="moodClicked"
             android:src="@drawable/tearsofjoy" />
 
         <ImageView
             android:id="@+id/inlove"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:onClick="moodClicked"
             android:src="@drawable/inlove" />
 
         <ImageView
             android:id="@+id/pensive"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:onClick="moodClicked"
             android:src="@drawable/pensive" />
 
         <ImageView
             android:id="@+id/angry"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:onClick="moodClicked"
-            android:src="@drawable/angry"/>
+            android:src="@drawable/angry" />
 
         <ImageView
             android:id="@+id/sick"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:onClick="moodClicked"
-            android:src="@drawable/vomit"/>
+            android:src="@drawable/vomit" />
     </LinearLayout>
 
     <Button
         android:id="@+id/submitentry"
         android:layout_width="250dp"
-        android:layout_height="20dp"
+        android:layout_height="63dp"
         android:layout_gravity="center"
+        android:layout_marginStart="5dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="20dp"
-        android:layout_weight="1"
+        android:layout_marginBottom="10dp"
         android:background="@android:color/holo_green_dark"
         android:fontFamily="cursive"
         android:onClick="sumbitentryClicked"

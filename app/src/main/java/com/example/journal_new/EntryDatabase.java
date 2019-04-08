@@ -58,16 +58,15 @@ public class EntryDatabase extends SQLiteOpenHelper {
 
     public void insert(JournalEntry journalentry) {
         SQLiteDatabase database = getWritableDatabase();
-        ContentValues contentvalue = new ContentValues();
-        contentvalue.put("title", journalentry.getTitle());
-        contentvalue.put("content", journalentry.getContent());
-        contentvalue.put("mood", journalentry.getMood());
-        database.insert("TABLE_NAME", null, contentvalue);
+        ContentValues contentValue = new ContentValues();
+        contentValue.put("title", journalentry.getTitle());
+        contentValue.put("content", journalentry.getContent());
+        contentValue.put("mood", journalentry.getMood());
+        database.insert("TABLE_NAME", null, contentValue);
     }
 
-    public void delete(long id) {
+    public void delete(long delete_id) {
         SQLiteDatabase database = getWritableDatabase();
-        database.execSQL("DELETE FROM " + TABLE_NAME + "WHERE" + id + "=" + id);
+        database.execSQL("DELETE FROM " + TABLE_NAME + " WHERE " + id + " = " + delete_id);
     }
-
 }

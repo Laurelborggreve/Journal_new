@@ -23,14 +23,14 @@ public class InputActivity extends AppCompatActivity {
 
     // Method to add a journal entry
     public void addEntry() {
-        EditText insert_title = findViewById(R.id.insert_title);
-        String title = insert_title.getText().toString();
+        EditText insertTitle = findViewById(R.id.insert_title);
+        String title = insertTitle.getText().toString();
 
-        EditText insert_content = findViewById(R.id.insert_content);
-        String content = insert_content.getText().toString();
+        EditText insertContent = findViewById(R.id.insert_content);
+        String content = insertContent.getText().toString();
 
-        JournalEntry journalentry = new JournalEntry(0, title, content, mood, "");
-        EntryDatabase.getInstance(getApplicationContext()).insert(journalentry);
+        JournalEntry journalEntry = new JournalEntry(0, title, content, mood, "");
+        EntryDatabase.getInstance(getApplicationContext()).insert(journalEntry);
 
         // Go back to Main Activity
         Intent intent = new Intent(InputActivity.this, MainActivity.class);
@@ -64,5 +64,6 @@ public class InputActivity extends AppCompatActivity {
                 mood = "sick";
                 break;
         }
+        Toast.makeText(this, "You selected " + mood, Toast.LENGTH_LONG).show();
     }
 }
